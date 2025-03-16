@@ -1,43 +1,47 @@
+# even_odd_checker_functions.py
+
 """
-This script prompts the user for an integer and determines if it's even or odd.
-It includes functions for input validation and even/odd checking.
+This module contains a function to check if a number is even or odd.
+It prompts the user for a number and outputs whether it is even or odd.
 """
-def get_integer_input() -> int:
+
+def get_user_input() -> int:
     """
-    Prompts the user to enter an integer and validates the input.
-@@ -8,32 +13,31 @@
+    Prompts the user to enter an integer and returns it.
+
+    Returns:
+        int: The number input by the user.
+    """
     while True:
         try:
-            number = int(input("Enter an integer: "))
-            return number
-            return number  # Return only after successful conversion
+            user_input = int(input("Enter a number: "))
+            return user_input
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-            print("Invalid input. Please enter a valid integer.")  # Loop continues after error
+            print("Please enter a valid integer.")
 
-def check_even_odd(number: int) -> str:
+def check_even_or_odd(number: int) -> str:
     """
-    Determines whether a given number is even or odd.
-    Parameters:
+    Determines if a number is even or odd.
+
     Args:
-        number (int): The integer to check.
+        number (int): The number to check.
+
     Returns:
-        str: A message indicating if the number is even or odd.
+        str: "Even" if the number is even, "Odd" if the number is odd.
     """
     if number % 2 == 0:
-        return f"{number} is an Even number."
-    else:
-        return f"{number} is an Odd number."
-    return f"{number} is an Odd number."  # Removed unnecessary 'else'
+        return "Even"
+    return "Odd"
 
+# Main Program Flow
 def main():
-def main() -> None:
     """
-    Main function to get user input and check if the number is even or odd.
+    Main function to check whether the entered number is even or odd.
     """
-    number = get_integer_input()
-    result = check_even_odd(number)
-    print(result)
+    number = get_user_input()  # Get the number from the user
+    result = check_even_or_odd(number)  # Check if the number is even or odd
+    print(f"The number {number} is {result}.")  # Display the result
 
-if _name_ == "_main_":
+# If the script is being run directly, call the main function
+if __name__ == "__main__":
     main()
